@@ -1,6 +1,9 @@
 package org.example;
 
+import org.example.parser.Parser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
@@ -15,10 +18,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-public class Application
-{
-  public static void main(String[] args)
-  {
-    SpringApplication.run(Application.class, args);
-  }
+public class Application {
+	@Autowired
+
+	public static void main (String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner app(Parser parser) {
+		return args -> {
+			parser.parse();
+		};
+	}
 }
