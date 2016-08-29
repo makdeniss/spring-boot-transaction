@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.parser.Parser;
+import org.example.services.MessagingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,13 @@ import java.util.Locale;
 public class Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Parser.class);
-
-
-	@Autowired
+	
 	public static void main (String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner app(ApplicationContext context, Parser parser) {
+	public CommandLineRunner app(ApplicationContext context, Parser parser, MessagingService messagingService) {
 		return args -> {
 			Locale defaultLocale = Locale.getDefault();
 			Locale.setDefault(defaultLocale);
@@ -32,9 +31,9 @@ public class Application {
 			MessageSource messageSource = context.getBean(MessageSource.class);
 
 			log.info(messageSource.getMessage("my.message.code", null, Locale.getDefault()));
+			log.info("Using MessagingService: " + messagingService.getMyMessageCode());
 
 			parser.parse();
-
 		};
 	}
 }
