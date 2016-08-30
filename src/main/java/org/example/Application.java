@@ -20,13 +20,14 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class Application {
 	@Autowired
-
+	Parser parser;
+	@Autowired
 	public static void main (String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner app(Parser parser) {
+	public CommandLineRunner app() {
 		return args -> {
 			parser.parse();
 		};
