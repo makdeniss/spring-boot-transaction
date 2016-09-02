@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
 import java.util.Locale;
@@ -15,10 +16,15 @@ import java.util.Locale;
 @Service
 public class MessagingService {
 
-    @Autowired
-    MessageSource messageSource;
+    private MessageSource messageSource;
 
     private String myMessageCode;
+
+    @Autowired
+    public MessagingService (MessageSource messageSource) {
+        Assert.notNull(messageSource, "MessageSource cannot be null!");
+        this.messageSource = messageSource;
+    }
 
     @PostConstruct
     public void initialiseService() {
