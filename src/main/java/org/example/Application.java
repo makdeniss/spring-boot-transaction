@@ -15,27 +15,27 @@ import java.util.Locale;
 @SpringBootApplication
 public class Application {
 
-	@Autowired
-	ApplicationContext applicationContext;
-	@Autowired
-	MessagingService messagingService;
-	@Autowired
-	Parser parser;
+    @Autowired
+    ApplicationContext applicationContext;
+    @Autowired
+    MessagingService messagingService;
+    @Autowired
+    Parser parser;
 
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-	public static void main (String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main (String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Bean
-	public CommandLineRunner app() {
-		return args -> {
-			Locale defaultLocale = Locale.getDefault();
-			Locale.setDefault(defaultLocale);
-			log.info("Using MessagingService: " + messagingService.getMyMessageCode());
+    @Bean
+    public CommandLineRunner app() {
+        return args -> {
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(defaultLocale);
+            log.info("Using MessagingService: " + messagingService.getMyMessageCode());
 
-			parser.parse();
-		};
-	}
+            parser.parse();
+        };
+    }
 }
