@@ -20,7 +20,7 @@ public class CustomerTests
   public void testCreate()
   {
     final Customer customer = new Customer();
-    customer.setName("John Doe");
+    customer.setName("Oksana");
 
     Assert.notNull(repository.save(customer));
   }

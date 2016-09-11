@@ -11,8 +11,8 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class AbstractEntity
 {
-  @Generated(GenerationTime.INSERT)
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Generated(GenerationTime.ALWAYS)
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
   @Id
   private Long id;
 

@@ -20,7 +20,7 @@ public class ProductTests
   public void testCreate()
   {
     final Product product = new Product();
-    product.setName("Apple iPad Air 2");
+    product.setName("IPad");
 
     Assert.notNull(repository.save(product));
   }

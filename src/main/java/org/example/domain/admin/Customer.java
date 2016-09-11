@@ -13,6 +13,9 @@ public class Customer extends AbstractEntity
   @Column(name = "name")
   private String name;
 
+  @Column(name = "balance")
+  private int balance;
+
   public String getName()
   {
     return name;
@@ -21,5 +24,13 @@ public class Customer extends AbstractEntity
   public void setName(final String name)
   {
     this.name = name;
+  }
+
+  public int getBalance() {
+    return balance;
+  }
+
+  public void setBalance(int balance) {
+    this.balance = balance;
   }
 }
