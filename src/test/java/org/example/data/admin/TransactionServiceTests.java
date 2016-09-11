@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by Deniss Makarenkov on 11/09/16.
@@ -64,6 +65,8 @@ public class TransactionServiceTests {
 
         assertEquals(expectedSenderAmount, customerSender.getBalance());
         assertEquals(expectedReceiverAmount, customerReceiver.getBalance());
+
+        when(mockCustomerRepository.save(customerSender)).thenReturn(customerSender);
 
         verify(mockCustomerRepository, times(2)).save(customerSender);
 
