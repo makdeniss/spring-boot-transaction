@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  *
  * Makes Autowiring simple.
  */
+
 @Configuration
 @ComponentScan(basePackages = "org.example")
 public class AppConfig {
