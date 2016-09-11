@@ -42,7 +42,7 @@ public class TransactionServiceTests {
     TransactionService transactionService;
 
     @Test
-    public void testTransactionBetweenCustomersAndBalanceOfReceiver() {
+    public void testTransactionBetweenCustomersAndBalanceOfReceiverAndSender() {
 
         int AMOUNT = 50;
 
@@ -66,6 +66,5 @@ public class TransactionServiceTests {
 
         when(mockCustomerRepository.save(customerSender)).thenReturn(customerSender);
         verify(mockCustomerRepository, times(2)).save(customerSender);
-
     }
 }
