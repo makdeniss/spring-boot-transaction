@@ -3,7 +3,6 @@ package org.example;
 import org.example.data.admin.CustomerRepository;
 import org.example.data.local.ProductRepository;
 import org.example.domain.admin.Customer;
-import org.example.domain.local.Product;
 import org.example.parser.Parser;
 import org.example.services.MessagingService;
 import org.example.services.TransactionService;
