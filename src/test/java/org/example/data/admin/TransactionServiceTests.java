@@ -12,9 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
@@ -67,7 +65,6 @@ public class TransactionServiceTests {
         assertEquals(expectedReceiverAmount, customerReceiver.getBalance());
 
         when(mockCustomerRepository.save(customerSender)).thenReturn(customerSender);
-
         verify(mockCustomerRepository, times(2)).save(customerSender);
 
     }
