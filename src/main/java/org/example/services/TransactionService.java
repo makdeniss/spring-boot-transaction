@@ -22,7 +22,7 @@ public class TransactionService {
     private MessagingService messagingService;
     private CustomerRepository customerRepository;
 
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(TransactionService.class);
 
     @Autowired
     public TransactionService(MessagingService messagingService, CustomerRepository customerRepository){
