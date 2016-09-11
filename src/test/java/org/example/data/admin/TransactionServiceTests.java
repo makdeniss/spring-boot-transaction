@@ -7,14 +7,18 @@ import org.example.services.TransactionService;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by Deniss Makarenkov on 11/09/16.
@@ -23,7 +27,7 @@ import static org.junit.Assert.assertEquals;
  * Test TransactionService
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 public class TransactionServiceTests {
 
@@ -35,7 +39,7 @@ public class TransactionServiceTests {
     @Mock
     private CustomerRepository mockCustomerRepository;
 
-    @Autowired
+    @InjectMocks
     TransactionService transactionService;
 
     @Test
@@ -43,7 +47,6 @@ public class TransactionServiceTests {
 
         int AMOUNT = 50;
 
-        // prepare your test data unless you always expect those values to exist.
         Customer customerReceiver = new Customer();
         customerReceiver.setName("TestReceiver");
         customerReceiver.setBalance(12);
@@ -56,10 +59,13 @@ public class TransactionServiceTests {
 
         int expectedReceiverAmount = customerReceiver.getBalance() + AMOUNT;
         int expectedSenderAmount = customerSender.getBalance() - AMOUNT;
+
         transactionService.makeTransactionFromSenderToReceiver(customerSender, customerReceiver, AMOUNT);
 
         assertEquals(expectedSenderAmount, customerSender.getBalance());
         assertEquals(expectedReceiverAmount, customerReceiver.getBalance());
+
+        verify(mockCustomerRepository, times(2)).save(customerSender);
 
     }
 }
