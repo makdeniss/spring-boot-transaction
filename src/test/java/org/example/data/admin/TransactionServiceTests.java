@@ -43,7 +43,6 @@ public class TransactionServiceTests {
 
     @Test
     public void testTransactionBetweenCustomersAndBalanceOfReceiverAndSender() {
-
         int AMOUNT = 50;
 
         Customer customerReceiver = new Customer();

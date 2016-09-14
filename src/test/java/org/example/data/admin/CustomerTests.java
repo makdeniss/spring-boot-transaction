@@ -30,7 +30,6 @@ public class CustomerTests {
 
   @Test
   public void testCreationOfCustomer() {
-
     final Customer customer = new Customer();
     customer.setName("TestCustomer");
     customer.setBalance(50);

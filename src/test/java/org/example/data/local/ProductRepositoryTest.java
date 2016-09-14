@@ -35,7 +35,6 @@ public class ProductRepositoryTest {
 
     @Test
     public void testFindAllProducts() {
-
         Product testProduct1 = new Product();
         testProduct1.setName("TestProduct1");
 
@@ -53,7 +52,6 @@ public class ProductRepositoryTest {
 
     @Test
     public void testFindProductByName() {
-
         Product testProduct = new Product();
         testProduct.setName("TestProduct");
 

@@ -30,7 +30,6 @@ public class ProductTests {
 
   @Test
   public void testCreationOfProduct() {
-
     final Product product = new Product();
     product.setName("Test Product");
     mockProductRepository.save(product);
