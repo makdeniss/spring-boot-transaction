@@ -43,9 +43,9 @@ public class TransactionService {
 
             log.info(messagingService.getFundsTransferredSuccessfully() + " "
                                             + messagingService.getFrom() + " "
-                                                                + sender + " "
+                                                                + sender.getName() + " "
                                             + messagingService.getTo() + " "
-                                                                + receiver + ".");
+                                                                + receiver.getName() + ".");
         }
 
         else {

@@ -13,6 +13,7 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
@@ -27,7 +28,7 @@ import static org.mockito.Mockito.when;
  */
 
 @RunWith(MockitoJUnitRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
+@SpringBootTest
 public class TransactionServiceTests {
 
     @Rule
@@ -35,6 +36,7 @@ public class TransactionServiceTests {
 
     @Mock
     private MessagingService mockMessagingService;
+
     @Mock
     private CustomerRepository mockCustomerRepository;
 
