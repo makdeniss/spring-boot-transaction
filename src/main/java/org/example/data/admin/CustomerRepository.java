@@ -1,10 +1,16 @@
 package org.example.data.admin;
 
-import org.example.data.AbstractEntityRepository;
-import org.example.domain.admin.Customer;
+import org.example.domain.admin.CustomerEntity;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CustomerRepository extends AbstractEntityRepository<Customer> {
+import java.util.List;
 
-    Customer findByName(String name) throws DataAccessException;
+@Repository
+public interface CustomerRepository extends JpaRepository<CustomerEntity, Long>{
+
+    CustomerEntity findByName(String name) throws DataAccessException;
+
+    List<CustomerEntity> findBybankId(String bankId) throws DataAccessException;
 }

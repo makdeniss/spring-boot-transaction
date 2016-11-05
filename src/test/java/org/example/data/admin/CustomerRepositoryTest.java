@@ -1,6 +1,6 @@
 package org.example.data.admin;
 
-import org.example.domain.admin.Customer;
+import org.example.domain.admin.CustomerEntity;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
@@ -36,13 +35,13 @@ public class CustomerRepositoryTest {
 
     @Test
     public void testFindAllCustomers() {
-        Customer testCustomer1 = new Customer();
+        CustomerEntity testCustomer1 = new CustomerEntity();
         testCustomer1.setName("TestCustomer1");
         testCustomer1.setBalance(50);
 
         mockCustomerRepository.save(testCustomer1);
 
-        Customer testCustomer2 = new Customer();
+        CustomerEntity testCustomer2 = new CustomerEntity();
         testCustomer2.setName("TestCustomer2");
         testCustomer2.setBalance(60);
 
@@ -55,7 +54,7 @@ public class CustomerRepositoryTest {
 
     @Test
     public void testFindCustomerByName() {
-        Customer testCustomer = new Customer();
+        CustomerEntity testCustomer = new CustomerEntity();
         testCustomer.setName("TestCustomer");
         testCustomer.setBalance(50);
         mockCustomerRepository.save(testCustomer);
@@ -63,7 +62,7 @@ public class CustomerRepositoryTest {
         when(mockCustomerRepository.findByName("TestCustomer")).thenReturn(testCustomer);
         verify(mockCustomerRepository, times(1)).save(testCustomer);
 
-        ArgumentCaptor<Customer> transactRepViewModelArgumentCaptor = ArgumentCaptor.forClass(Customer.class);
+        ArgumentCaptor<CustomerEntity> transactRepViewModelArgumentCaptor = ArgumentCaptor.forClass(CustomerEntity.class);
 
         verify(mockCustomerRepository, times(1)).save(transactRepViewModelArgumentCaptor.capture());
         assertEquals("TestCustomer", transactRepViewModelArgumentCaptor.getValue().getName());

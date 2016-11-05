@@ -1,8 +1,7 @@
 package org.example.services;
 
-import org.example.Application;
 import org.example.data.admin.CustomerRepository;
-import org.example.domain.admin.Customer;
+import org.example.domain.admin.CustomerEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class TransactionService {
         this.customerRepository = customerRepository;
     }
 
-    public void makeTransactionFromSenderToReceiver(Customer sender, Customer receiver, int amount) {
+    public void makeTransactionFromSenderToReceiver(CustomerEntity sender, CustomerEntity receiver, int amount) {
 
         if (sender.getBalance() >= amount) {
             sender.setBalance(sender.getBalance() - amount);

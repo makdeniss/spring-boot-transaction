@@ -1,7 +1,6 @@
 package org.example.data.admin;
 
-import org.example.Application;
-import org.example.domain.admin.Customer;
+import org.example.domain.admin.CustomerEntity;
 import org.example.services.MessagingService;
 import org.example.services.TransactionService;
 import org.junit.Rule;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.Assert.assertEquals;
@@ -47,12 +45,12 @@ public class TransactionServiceTests {
     public void testTransactionBetweenCustomersAndBalanceOfReceiverAndSender() {
         int AMOUNT = 50;
 
-        Customer customerReceiver = new Customer();
+        CustomerEntity customerReceiver = new CustomerEntity();
         customerReceiver.setName("TestReceiver");
         customerReceiver.setBalance(12);
         mockCustomerRepository.save(customerReceiver);
 
-        Customer customerSender = new Customer();
+        CustomerEntity customerSender = new CustomerEntity();
         customerSender.setName("TestSender");
         customerSender.setBalance(50);
         mockCustomerRepository.save(customerSender);

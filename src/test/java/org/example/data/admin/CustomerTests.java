@@ -1,7 +1,6 @@
 package org.example.data.admin;
 
-import org.example.Application;
-import org.example.domain.admin.Customer;
+import org.example.domain.admin.CustomerEntity;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,11 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.Assert;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -31,7 +26,7 @@ public class CustomerTests {
 
   @Test
   public void testCreationOfCustomer() {
-    final Customer customer = new Customer();
+    final CustomerEntity customer = new CustomerEntity();
     customer.setName("TestCustomer");
     customer.setBalance(50);
 
