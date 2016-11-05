@@ -57,10 +57,8 @@ public class TransactionRunner {
         List<TransactionsEntity> transactionsEntitiesList = transactionsRepository.findByCustomerIdIn(customerIdList);
 
         for (TransactionsEntity transactionsEntity : transactionsEntitiesList) {
-            log.info("customer's " + transactionsEntity.getCustomerId() + " transactions are: " + transactionsEntity.getAmount());
+            log.info("customer's " + transactionsEntity.getCustomerId()
+                                   + " transactions are: " + transactionsEntity.getAmount());
         }
-
     }
-
-
 }
