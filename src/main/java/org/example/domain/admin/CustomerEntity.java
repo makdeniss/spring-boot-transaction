@@ -1,6 +1,7 @@
 package org.example.domain.admin;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Deniss Makarenkov on 05/11/2016.
@@ -9,18 +10,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "customer", schema = "public", catalog = "postgres")
 public class CustomerEntity {
-    private int id;
+    private Long id;
     private String name;
     private int balance;
     private String bankId;
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,14 +68,5 @@ public class CustomerEntity {
         if (bankId != null ? !bankId.equals(that.bankId) : that.bankId != null) return false;
 
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + balance;
-        result = 31 * result + (bankId != null ? bankId.hashCode() : 0);
-        return result;
     }
 }

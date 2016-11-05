@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface TransactionsRepository extends JpaRepository<TransactionsEntity, Long> {
 
-    List<TransactionsEntity> findByCustomerIdIn(List<String> customerEntities);
+    List<TransactionsEntity> findByCustomerIdIn(List<Long> customerEntities);
 
     List<TransactionsEntity> findBycustomerId(String customerId);
 }

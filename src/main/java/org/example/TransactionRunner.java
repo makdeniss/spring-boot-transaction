@@ -46,12 +46,12 @@ public class TransactionRunner {
         parser.parse();
 
         List<CustomerEntity> customerEntitiesList = customerRepository.findBybankId("1");
-        List<String> customerIdList = new ArrayList<>();
+        List<Long> customerIdList = new ArrayList<>();
 
         for (CustomerEntity customerEntity : customerEntitiesList) {
             log.info("found customer: " + customerEntity.getName() + " with id: " + customerEntity.getId());
             log.info("  with bank_id: " + customerEntity.getBankId());
-            customerIdList.add(String.valueOf(customerEntity.getId()));
+            customerIdList.add(customerEntity.getId());
         }
 
         List<TransactionsEntity> transactionsEntitiesList = transactionsRepository.findByCustomerIdIn(customerIdList);

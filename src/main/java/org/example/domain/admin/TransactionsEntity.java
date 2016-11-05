@@ -13,7 +13,7 @@ public class TransactionsEntity {
 
     private String id;
     private String amount;
-    private String customerId;
+    private Long customerId;
 
     @Id
     @Column(name = "id")
@@ -37,11 +37,11 @@ public class TransactionsEntity {
 
     @Basic
     @Column(name = "customer_id")
-    public String getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 
